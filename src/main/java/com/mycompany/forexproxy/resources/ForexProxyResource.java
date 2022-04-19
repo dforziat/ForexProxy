@@ -38,7 +38,7 @@ public class ForexProxyResource {
         return response;
     }
 
-    private Response validateInput(List<String> currencyPairs) {
+    private Response validateInput(List<String> currencyPairs) {        
         if (currencyPairs == null || currencyPairs.isEmpty()) {
             LOGGER.warning("Currency Pair list is empty");
             return Response.status(Response.Status.BAD_REQUEST.getStatusCode()).entity(new ErrorDto(ErrorCodes.INPUT_ERROR, "Currencies are empty.")).build();
@@ -47,7 +47,7 @@ public class ForexProxyResource {
             //Assuming all currency codes are 3 digits and all pairs are 6 digits.
             if (pair.length() != Currencies.PAIR_LENGTH) {
                 LOGGER.warning(String.format("Currency Pair %s length is not 6", pair.length()));
-                return Response.status(Response.Status.BAD_REQUEST.getStatusCode()).entity(new ErrorDto(ErrorCodes.INPUT_ERROR, "Currency pair:  " + pair + " + is invalid.")).build();
+                return Response.status(Response.Status.BAD_REQUEST.getStatusCode()).entity(new ErrorDto(ErrorCodes.INPUT_ERROR, "Currency pair:  " + pair + " is invalid.")).build();
             }
 
             String firstCurrency = pair.substring(0, 3);
