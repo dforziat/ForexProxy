@@ -19,17 +19,17 @@ Server:
 
 # Project Setup
 The Java project is built with Maven and deployed locally on a Payara Server. 
-The project should be deployable on most common Java servers, but becareful with conflicting port numbers with Docker.
+The project should be deployable on most common Java servers, but be careful with conflicting port numbers with Docker.
 
 **Important** - 
-I changed the port of my local Docker container to 8082 to fix a conflict with my local installation.
+I changed the port of my local Docker container to 8082 to fix a conflict with my local Payara installation.
 If you need to changed your port too, the URL of the Docker container is located within the [ForexProxyClient.java](https://github.com/dforziat/ForexProxy/blob/main/src/main/java/com/mycompany/forexproxy/client/ForexProxyClient.java) class on line 21.
 
 I have created an importable list of API's that can be run in common API testing tools like Insomnia, Postman, Swagger 2.0 and OpenAPI. If you would like to use it, it can be downloaded here: [Insomnia_ForexProxy.zip](https://github.com/dforziat/ForexProxy/files/8504166/Insomnia_ForexProxy.zip)
 
 
 Once the Java project has been successfully been built and deployed, you can "ping" the server using: 
-GET http://localhost:8080/ForexProxy/resources/javaee8
+Method: GET http://localhost:8080/ForexProxy/resources/javaee8
 
 A successful response will return response code 200 and the body text "ping".
 
@@ -49,9 +49,9 @@ http://localhost:8080/ForexProxy/resources/forexproxy/exchangerate?currencyPair=
 
 # Error Handling
 
-The project is using basic Java logging and is written to the basic server log. For my Payara instance it is located here: \Payara_Server\glassfish\domains\domain1\logs\server.txt
+The project is using basic Java logging and is written to the server log. For my Payara instance it is located here: \Payara_Server\glassfish\domains\domain1\logs\server.txt
 
-However, beware depending upon what server you are using the location will be different. 
+However, depending upon what server you are using the location will be different. 
 
 **Error Codes** - I have created a simple error response format that contains an error code and message. Error code '98' is an input error and error code '99' is an internal error. Please see the error messages for more detailed information. 
 
