@@ -68,6 +68,6 @@ Create a REGEX whitelist of acceptable characters to check against the input.
 
 Continue the process if at least one currency pair in a list is valid. Currently stops once an invalid currency pair is requested. 
 
-
+Create mocks for API response for additional testing.
 
 
